@@ -16,6 +16,7 @@ body {
 }
 
 .container {
+  grid-row: 3/4;
   justify-self: center;
   align-self: center;
   grid-column: 5/9;
@@ -26,7 +27,7 @@ body {
   width: 400px;
   height: 300px;
   /* outline: 10px solid red; */
-  grid-row: 2/10;
+  grid-row: 5/10;
   grid-column: 5/9;
   display: flex;
   align-items: center;
@@ -58,7 +59,18 @@ body {
 }
 
 .seal {
-  position: absolute;
-  font-size: 80px;
-  color: crimson;
+  position: relative;
+  font-size: 78px;
+  width: 90px;
+  height: 70px;
+  margin: 40%;
+  color: rgba(245, 245, 245, 0.397);
+  background-color: indianred;
+  border-style: groove;
+  border-color: crimson;
+  border-radius: 50%;
+  p {
+    margin-top: -38px;
+    margin-left: -5px;
+  }
 }
