@@ -39,6 +39,7 @@ label {
 }
 
 .letter {
+  grid: inherit;
   width: 400px;
   height: 300px;
   background-color: pink;
@@ -49,7 +50,14 @@ label {
 }
 
 .main {
-  border: 6px solid palevioletred;
+  box-shadow: 0 10px 30px purple;
+}
+
+.flap-bg {
+  background-color: palevioletred;
+  margin-top: 4px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 1%, 50% 56%, 0 1%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .flap {
@@ -57,20 +65,13 @@ label {
   background-color: pink;
   border: unset;
   clip-path: polygon(0 0, 100% 0, 50% 55%);
-}
-
-.flap-bg {
-  background-color: palevioletred;
-  margin-top: 4px;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 1%, 50% 56%, 0 1%);
+  transition: transform 0.3s ease-in-out;
 }
 
 .seal {
   position: absolute;
-  font-size: 65px;
   width: 70px;
   height: 70px;
-  color: rgba(245, 245, 245, 0.397);
   background-color: indianred;
   border-style: groove;
   border-color: rgba(220, 20, 60, 0.445);
@@ -80,4 +81,35 @@ label {
     margin-top: -26px;
     margin-left: -2px;
   }
+}
+
+/* checkbox */
+#check {
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  opacity: 0.4;
+  z-index: 1;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+input:not(:checked) ~ label .flap {
+  transform-origin: top;
+  transform: rotateX(0deg);
+}
+
+input:not(:checked) ~ label .flap-bg {
+  transform-origin: top;
+  transform: rotateX(0deg);
+}
+
+input:checked ~ label .flap {
+  transform-origin: top;
+  transform: rotateX(-180deg) translateY(-4px);
+}
+
+input:checked ~ label .flap-bg {
+  transform-origin: top;
+  transform: rotateX(-180deg);
 }
