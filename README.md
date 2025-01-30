@@ -2,4 +2,4 @@
 ---
 This is supposed to become a digital valentine's card
 
-TODO: create a smoother reassembly on uncheck
+[Happy valentine's](https://jg-exe.github.io/valentines/)
