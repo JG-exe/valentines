@@ -206,6 +206,7 @@ input:checked ~ label .flap {
   transform: rotateX(-180deg) translateY(-4px);
   transition: 0.3s ease-in-out;
   transition-delay: 0.3s;
+  transform-origin: top;
 
   -webkit-transform-origin: top;
   -webkit-transform: rotateX(-180deg) translateY(-4px);
@@ -216,6 +217,7 @@ input:checked ~ label .flap-bg {
   transform: rotateX(-180deg);
   transition: 0.3s ease-in-out;
   transition-delay: 0.3s;
+  transform-origin: top;
 
   -webkit-transform-origin: top;
   -webkit-transform: rotateX(-180deg);
