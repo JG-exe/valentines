@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Delius Unicase";
+  font-family: "Courgette";
   color: burlywood;
 }
 
@@ -72,9 +72,12 @@ label {
   margin: 10px 9px;
   background-color: whitesmoke;
   p {
-    margin: 30px;
+    margin: 15px 30px;
     font-size: 12px;
     color: purple;
+  }
+  .int {
+    text-align: left;
   }
   .sign {
     text-align: right;
