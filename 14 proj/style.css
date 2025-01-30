@@ -34,6 +34,13 @@ body {
   margin: auto;
 }
 
+.txt {
+  grid-row: 9/11;
+  grid-column: 5/9;
+  text-align: center;
+  font-size: large;
+}
+
 label {
   position: absolute;
 }
@@ -68,30 +75,53 @@ label {
   transition: transform 0.3s ease-in-out;
 }
 
-.seal {
+.heart {
   position: absolute;
-  width: 70px;
-  height: 70px;
-  background-color: indianred;
-  border-style: groove;
-  border-color: rgba(220, 20, 60, 0.445);
-  border-radius: 50%;
-  margin: 120px 160px;
-  p {
-    margin-top: -26px;
-    margin-left: -2px;
-  }
+  cursor: pointer;
+  height: 170px;
+  width: 200px;
+
+  scale: 30%;
+  margin: 70px 102px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 160px;
+  background-color: crimson;
+}
+
+.heart::before {
+  left: 100px;
+
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+
+  border-radius: 50px 50px 0 0;
+}
+
+.heart::after {
+  right: 100px;
+
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+  border-radius: 50px 50px 0 0;
 }
 
 /* checkbox */
 #check {
-  cursor: pointer;
-  width: 70px;
-  height: 70px;
-  opacity: 0.4;
-  z-index: 1;
-  border-radius: 20px;
-  box-sizing: border-box;
+  display: none;
 }
 
 input:not(:checked) ~ label .flap {
@@ -104,12 +134,25 @@ input:not(:checked) ~ label .flap-bg {
   transform: rotateX(0deg);
 }
 
+input:not(:checked) ~ label .heart {
+  transform-origin: center 70%;
+  transform: translateX(0px) rotate(0deg);
+}
+
 input:checked ~ label .flap {
   transform-origin: top;
   transform: rotateX(-180deg) translateY(-4px);
+  transition-delay: 0.3s;
 }
 
 input:checked ~ label .flap-bg {
   transform-origin: top;
   transform: rotateX(-180deg);
+  transition-delay: 0.3s;
+}
+
+input:checked ~ label .heart {
+  transform-origin: center 70%;
+  transform: translateX(-60px) rotate(-70deg);
+  transition-duration: 0.3s;
 }
