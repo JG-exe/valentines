@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   font-family: "Delius Unicase";
+  color: burlywood;
 }
 
 body {
@@ -12,7 +13,7 @@ body {
   grid-template-rows: repeat(12, 1fr);
   min-height: 100vh;
   width: 100%;
-  background-color: whitesmoke;
+  background-color: darkgoldenrod;
 }
 
 .container {
@@ -54,29 +55,69 @@ label {
   display: grid;
   transition: all 0.3s ease-in-out;
   position: absolute;
+  border-radius: 0 0 7px 7px;
 }
 
 .main {
   box-shadow: 0 10px 30px purple;
+  background-color: pink;
+}
+
+.note {
+  z-index: 1;
+  justify-content: center;
+  position: absolute;
+  width: 390px;
+  height: 270px;
+  margin: 10px 9px;
+  background-color: whitesmoke;
+  p {
+    margin: 30px;
+    font-size: 12px;
+    color: purple;
+  }
+  .sign {
+    text-align: right;
+  }
+
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+.front {
+  position: absolute;
+  z-index: 2;
+  width: 401px;
+  height: 300px;
+  background-color: rgb(252, 157, 188);
+  margin: 4px;
+  clip-path: polygon(50% 45%, 100% 0, 100% 100%, 0 100%, 0 0);
 }
 
 .flap-bg {
+  z-index: 2;
   background-color: palevioletred;
   margin-top: 4px;
   clip-path: polygon(0% 0%, 100% 0%, 100% 1%, 50% 56%, 0 1%);
-  transition: transform 0.3s ease-in-out;
+
+  transform: rotateX(0deg);
+  transition-duration: 0.3s ease-in-out;
 }
 
 .flap {
+  z-index: 2;
   margin-left: 3px;
-  background-color: pink;
+  background-color: rgb(255, 163, 179);
   border: unset;
   clip-path: polygon(0 0, 100% 0, 50% 55%);
-  transition: transform 0.3s ease-in-out;
+
+  transform: rotateX(0deg);
+  transition-duration: 0.3s ease-in-out;
 }
 
 .heart {
   position: absolute;
+  z-index: 4;
   cursor: pointer;
   height: 170px;
   width: 200px;
@@ -92,7 +133,7 @@ label {
   position: absolute;
   width: 100px;
   height: 160px;
-  background-color: crimson;
+  background-color: rgb(178, 34, 106);
 }
 
 .heart::before {
@@ -116,6 +157,7 @@ label {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 
+  -webkit-border-radius: 50px 50px 0 0;
   border-radius: 50px 50px 0 0;
 }
 
@@ -127,32 +169,69 @@ label {
 input:not(:checked) ~ label .flap {
   transform-origin: top;
   transform: rotateX(0deg);
+  transition: 0.3s ease-in-out;
+
+  -webkit-transform-origin: top;
+  -webkit-transform: rotateX(0deg);
 }
 
 input:not(:checked) ~ label .flap-bg {
   transform-origin: top;
   transform: rotateX(0deg);
+  transition: 0.3s ease-in-out;
+
+  -webkit-transform-origin: top;
+  -webkit-transform: rotateX(0deg);
 }
 
 input:not(:checked) ~ label .heart {
   transform-origin: center 70%;
-  transform: translateX(0px) rotate(0deg);
+  transform: translateY(0px) rotate(0deg);
+
+  -webkit-transform-origin: center 70%;
+  -webkit-transform: translateX(0px) rotate(0deg);
 }
 
 input:checked ~ label .flap {
-  transform-origin: top;
   transform: rotateX(-180deg) translateY(-4px);
+  transition: 0.3s ease-in-out;
   transition-delay: 0.3s;
+
+  -webkit-transform-origin: top;
+  -webkit-transform: rotateX(-180deg) translateY(-4px);
+  -webkit-transition-delay: transform 0.3s ease;
 }
 
 input:checked ~ label .flap-bg {
-  transform-origin: top;
   transform: rotateX(-180deg);
+  transition: 0.3s ease-in-out;
   transition-delay: 0.3s;
+
+  -webkit-transform-origin: top;
+  -webkit-transform: rotateX(-180deg);
+  -webkit-transition-delay: transform 0.3s ease;
+  -webkit-transition-delay: 0.3s;
+}
+
+input:checked ~ label .flap,
+input:checked ~ label .flap-bg {
+  transform-origin: top;
+  transition: transform 0.3s 0.4s, z-index 0s 0.6s;
+
+  z-index: 0;
 }
 
 input:checked ~ label .heart {
   transform-origin: center 70%;
   transform: translateX(-60px) rotate(-70deg);
   transition-duration: 0.3s;
+
+  -webkit-transform-origin: center 70%;
+  -webkit-transform: translateX(-60px) rotate(-70deg);
+  -webkit-transition-duration: 0.3s;
+}
+
+input:checked ~ label .note {
+  transform: translateY(-170px);
+  transition-delay: 0.8s;
 }
